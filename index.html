@@ -1,8 +1,88 @@
+
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRlicious</title>
+    <style>
+        body {
+            padding: 0;
+            font-family: Tahoma, sans-serif;
+            margin: 0px;
+            padding: 0px;
+            border: none;
+        }
+        form {
+            position: fixed;
+            bottom: 0;
+            background: #888;
+            padding: 10px 0px;
+        }
+        input, select, label, p, button {
+            width: 95vw;
+            margin: 8px 8px;
+            font-size: 1.5em;
+            margin: 10px;
+            padding: 10px;
+            box-sizing:border-box;
+            font-weight: 600;
+        }
+        label {
+            color: #fff;
+        }
+        h1 {
+            text-align: center;
+        }
+        #people{
+            display: none;
+        }
+        .delete{
+            width:auto;
+        }
+        #top_list{
+            display: block;
+        }
+    </style>
 </head>
 <body>
-<div id="top list">
-</div>
-<button onclick="make()">MORE CHIMPS</button>
+    <!--foods page-->
+    <div id="foods">
+    <button id="foods_done" onclick="switchVisibility()" disabled="true">Done</button>
+    <h1>FOODS</h1>
+    <div id="top_list" style="overflow:visible"></div>
+    <form id='form'>
+        <label for="fn">Food name</label>
+        <input type="text" id="fn" name="foodName" autocomplete="off">        
+        <label for="cal">Calories / serving</label>
+        <input type="text" id="cal" name="caloriesPerServing" autocomplete="off">
+        <label for="ss">Serving Size</label>
+        <input type="text" id="ss" name="servingSize" autocomplete="off">
+
+        <input type="submit" value="Add" ></input>
+    </form>
+    </div>
+    <!--people page-->
+    <div id="people">
+        <button onclick="endScreen()" id="people_done">Done</button>
+        <h1>PARTY MEMBERS</h1>
+        <div id="top_list_people"></div>
+        <br><br><br><br>
+    <form id='form1'>
+        <label for="n">Name</label>
+        <input type="text" id="n" name="Name">
+
+        <label for="age">Age</label>
+        <input type="text" id="age" name="age" autocomplete="off">
+        <label for="wgt">Weight (lbs)</label>
+        <input type="text" id="wgt" name="weight" autocomplete="off">
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" autocomplete="off">
+            <option value="f">Female</option>
+            <option value="m">Male</option>
+        </select>
+        <input type="submit" value="Add"></input>
+    </form>
+    </div>
 </body>
+</html>
