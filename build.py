@@ -37,7 +37,7 @@ with open('output.html', 'wb') as output_file:
   output_file.write(final)
 prefix_text = 'http://data:text/html,'
 prefix_b64  = 'http://data:text/html;base64,'
-data_text = urllib.parse.quote(final)
+data_text = urllib.parse.quote(final, safe=':/<>\"\'?[]@!$&()*+,;= ')
 data_b64  = base64.b64encode(final)
 text_len = len(prefix_text) + len(data_text)
 b64_len = len(prefix_b64) + len(data_b64)
