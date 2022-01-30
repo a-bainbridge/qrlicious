@@ -26,13 +26,13 @@ with open(html_source, 'rb') as page_file:
   # todo: minifier?
   text_buffer.append(str(page_file.read(length), 'utf-8'))
 
-a = ''
-with open('index.html.gz', 'rb') as gzipped_file:
-  length = gzipped_file.seek(0, SEEK_END)
-  gzipped_file.seek(0, SEEK_SET)
-  a = gzipped_file.read(length)
-gzipped_b64 = base64.b64encode(a)
-print(gzipped_b64)
+# a = ''
+# with open('index.html.gz', 'rb') as gzipped_file:
+#   length = gzipped_file.seek(0, SEEK_END)
+#   gzipped_file.seek(0, SEEK_SET)
+#   a = gzipped_file.read(length)
+# gzipped_b64 = base64.b64encode(a)
+# print(gzipped_b64)
 
 for js_source in js_sources:
   with open(js_source, 'rb') as js_file:
