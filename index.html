@@ -1,0 +1,108 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRlicious</title>
+    <style>
+        body {
+            padding: 0;
+            font-family: Tahoma, sans-serif;
+            margin: 0px;
+            padding: 0px;
+            border: none;
+        }
+        input, select, label, p, button, td{
+            width: 95vw;
+            margin: 8px 8px;
+            font-size: 1.5em;
+            margin: 10px;
+            padding: 10px;
+            box-sizing:border-box;
+            font-weight: 600;
+        }
+        form {
+            position: fixed;
+            bottom: -15;
+            background: #888;
+            padding: 0px 0px;
+            font-size: 0.7em;
+        }
+        label {
+            color: #fff;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width:100%;
+            border: 2px solid black;
+        }
+        td {
+            font-size: 1.25em;
+        }
+        #people, #es, #ps{
+            display: none;
+        }
+        .delete, p{
+            width:auto;
+            display:inline;
+        }
+    </style>
+</head>
+<body>
+    <!--foods page-->
+    <div id="foods">
+    <button id="foods_done" onclick="switchVisibility()" disabled="true">Done</button>
+    <h1>FOODS</h1>
+    <div id="top_list" style="overflow:visible"></div>
+    <form id='form'>
+        <label for="fn">Food name</label>
+        <input type="text" id="fn" name="foodName" autocomplete="off">        
+        <label for="cal">Calories / serving</label>
+        <input type="text" id="cal" name="caloriesPerServing" autocomplete="off">
+        <label for="ss">Serving Size</label>
+        <input type="text" id="ss" name="servingSize" autocomplete="off">
+
+        <input type="submit" value="Add" ></input>
+    </form>
+    </div>
+    <!--people page-->
+    <div id="people">
+        <button onclick="penultimateScreen()" id="people_done">Done</button>
+        <h1>PARTY MEMBERS</h1>
+        <div id="top_list_people"></div>
+        <br><br><br><br>
+    <form id='form1'>
+        <label for="n">Name</label>
+        <input type="text" id="n" name="Name">
+
+        <label for="age">Age</label>
+        <input type="text" id="age" name="age" autocomplete="off">
+        <label for="wgt">Weight (kgs)</label>
+        <input type="text" id="wgt" name="weight" autocomplete="off">
+        <label for="gender">Sex</label>
+        <select id="gender" name="gender" autocomplete="off">
+            <option value="f">Female</option>
+            <option value="m">Male</option>
+        </select>
+        <input type="submit" value="Add"></input>
+    </form>
+    </div>
+    <div id="ps">
+        <form id="form2">
+            <label for="days">Days you'll be in</label>
+            <input type="text" id="days" name="days" autocomplete="off">
+            <input type="submit" value="Enter"></input>
+        </form>
+    </div>
+    <div id="es">
+        <table id="the only table lmao">
+            <tr id="tr1">
+                <th>Day</th>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
