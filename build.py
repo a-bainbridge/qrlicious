@@ -9,7 +9,9 @@ parser = argparse.ArgumentParser(description='Generate offline site QR code')
 
 parser.add_argument('--skip-code', action='store_true',
                     help='Don\'t generate a QR code')
-
+                    
+parser.add_argument('--safe', action='store_true',
+                    help='Limit the generation')
 args = parser.parse_args()
 
 config = configparser.ConfigParser()
@@ -45,7 +47,7 @@ with open('output.html', 'wb') as output_file:
   output_file.write(final)
 prefix_text = 'http://data:text/html,'
 prefix_b64  = 'http://data:text/html;base64,'
-data_text = urllib.parse.quote(final, safe=':/<>\"\'?[]@!$&()*+,;= ')
+data_text = urllib.parse.quote(final, ':/<>\"\'?[]@!$&()*+,;= ' if not args.safe else '')
 data_b64  = base64.b64encode(final)
 text_len = len(prefix_text) + len(data_text)
 b64_len = len(prefix_b64) + len(data_b64)
