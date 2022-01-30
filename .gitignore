@@ -1,4 +1,8 @@
 output.html
 link
 qrcode.*
+<<<<<<< HEAD
 __pycache__
+=======
+env/
+>>>>>>> inflate
