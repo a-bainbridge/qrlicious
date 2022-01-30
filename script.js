@@ -1,3 +1,4 @@
+let yea=(id)=>document.getElementById(id)
 let foods = []
 let people = []
 let days
@@ -7,42 +8,42 @@ let n
 console.log(foods)
 clear=(root)=> {
     for(j = 0; j < root.children.length; j++) {
-        document.getElementById("b" + j).removeEventListener("click", document.getElementById("b" + j).onclick)
+        yea("b" + j).removeEventListener("click", yea("b" + j).onclick)
         root.removeChild(root.children[0])
     }
 }
 make=()=>{
-    foods.push({name: document.getElementById("fn").value, caloriesPer: document.getElementById("cal").value, servingSize: document.getElementById("ss").value})
+    foods.push({name: yea("fn").value, caloriesPer: yea("cal").value})
     clear(df)
     df.innerHTML=''
     generate(foods, df)
 
 }
 makePerson=()=>{
-    people.push({name: document.getElementById("n").value, age: document.getElementById("age").value, weight: document.getElementById("wgt").value, gender: document.getElementById("gender").value})
+    people.push({name: yea("n").value, age: yea("age").value, weight: yea("wgt").value})
     clear(dp)
     dp.innerHTML=''
     generate(people, dp)
 }
-penultimateScreen=()=>{
-    for (let i=0;i<people.length;i++){
-        if (people[i].gender=="Male") {people[i].bmr=1.3*((10*people[i].weight)+(6.25+175)-(5*people[i].age)+5)}
-        else {people[i].bmr=1.3*((10*people[i].weight)+(6.25+63)-(5*people[i].age)-161)}
-    }
-    document.getElementById("people").style.display="none"
-    document.getElementById("ps").style.display="block"
-}
+// penultimateScreen=()=>{
+
+//     
+//     yea("ps").style.display="block"
+// }
 endScreen=()=>{
-    document.getElementById("ps").style.display="none"
-    document.getElementById("es").style.display="block"
-    ro1=document.getElementById("tr1")
+    for (let i=0;i<people.length;i++){
+    people[i].bmr=1.3*((10*people[i].weight)+(6.25+175)-(5*people[i].age)+5)
+    }
+    yea("people").style.display="none"
+    yea("es").style.display="block"
+    ro1=yea("tr1")
     for (let z=0;z<people.length;z++){
         the=document.createElement("th")
         the.innerHTML=people[z].name
         ro1.appendChild(the)
     }
-    tabl=document.getElementById("the only table lmao")
-    for (let r=0;r<days;r++){
+    tabl=yea("tb")
+    for (let r=0;r<7;r++){
         ro=document.createElement("tr")
         ro.innerHTML="<td>"+(r+1).toString()+"</td>"
         rando=Math.random()
@@ -51,18 +52,18 @@ endScreen=()=>{
         if (m==n){
             n=(n+1)%(foods.length-1)
         }
-        for (let z=1;z<people.length+1;z++){
+        for (let z=0;z<people.length;z++){
             console.log(m)
             console.log(n)
-            ro.innerHTML+=`<td>${foods[m].name}: ${(people[z-1].bmr/2000).toPrecision(4)} serving \n\n ${foods[n].name}: ${(people[z-1].bmr/2000).toPrecision(4)} serving</td>`
+            ro.innerHTML+=`<td>${foods[m].name}: ${(people[z].bmr/foods[m].caloriesPer).toPrecision(4)} servings \n\n ${foods[n].name}: ${(people[z].bmr/foods[m].caloriesPer).toPrecision(4)} servings</td>`
         }
         tabl.innerHTML+=ro.outerHTML
     }
 }
 switchVisibility=()=>{
     df.innerHTML=''
-    document.getElementById("people").style.display="block"
-    document.getElementById("foods").style.display="none"
+    yea("people").style.display="block"
+    yea("foods").style.display="none"
     generate(people, dp)
 }
 function rem(i,contain,listeds,root) {
@@ -77,14 +78,14 @@ return function() {
 };
 }
 let b
-let df = document.getElementById("top_list")
-let dp = document.getElementById("top_list_people")
-let but_done = document.getElementById("foods_done")
-let peo_done = document.getElementById("people_done")
+let df = yea("tl")
+let dp = yea("tlp")
+let but_done = yea("foods_done")
+let peo_done = yea("people_done")
 let contain
 let pe
 function generate(listeds, root){
-    but_done.disabled = foods.length==0
+    but_done.disabled = foods.length<2
     peo_done.disabled = people.length==0
     for (let x = 0; x < listeds.length;x++) {
         contain=document.createElement("div")
@@ -105,12 +106,9 @@ function generate(listeds, root){
 }
 generate(foods, df)
 
-let form = document.getElementById("form");
+let form = yea("form");
 function handleForm(event) { event.preventDefault(); make();} 
 form.addEventListener('submit', handleForm);
-let form1 = document.getElementById("form1");
+let form1 = yea("form1");
 function handleForm1(event) { event.preventDefault(); makePerson();} 
 form1.addEventListener('submit', handleForm1);
-let form2 = document.getElementById("form2");
-function handleForm2(event) { event.preventDefault(); days=document.getElementById("days").value; endScreen()} 
-form2.addEventListener('submit', handleForm2);
