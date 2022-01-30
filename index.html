@@ -13,13 +13,7 @@
             padding: 0px;
             border: none;
         }
-        form {
-            position: fixed;
-            bottom: 0;
-            background: #888;
-            padding: 10px 0px;
-        }
-        input, select, label, p, button {
+        input, select, label, p, button, td{
             width: 95vw;
             margin: 8px 8px;
             font-size: 1.5em;
@@ -28,20 +22,32 @@
             box-sizing:border-box;
             font-weight: 600;
         }
+        form {
+            position: fixed;
+            bottom: -15;
+            background: #888;
+            padding: 0px 0px;
+            font-size: 0.7em;
+        }
         label {
             color: #fff;
         }
         h1 {
             text-align: center;
         }
-        #people{
+        table {
+            width:100%;
+            border: 2px solid black;
+        }
+        td {
+            font-size: 1.25em;
+        }
+        #people, #es, #ps{
             display: none;
         }
-        .delete{
+        .delete, p{
             width:auto;
-        }
-        #top_list{
-            display: block;
+            display:inline;
         }
     </style>
 </head>
@@ -64,7 +70,7 @@
     </div>
     <!--people page-->
     <div id="people">
-        <button onclick="endScreen()" id="people_done">Done</button>
+        <button onclick="penultimateScreen()" id="people_done">Done</button>
         <h1>PARTY MEMBERS</h1>
         <div id="top_list_people"></div>
         <br><br><br><br>
@@ -74,15 +80,29 @@
 
         <label for="age">Age</label>
         <input type="text" id="age" name="age" autocomplete="off">
-        <label for="wgt">Weight (lbs)</label>
+        <label for="wgt">Weight (kgs)</label>
         <input type="text" id="wgt" name="weight" autocomplete="off">
-        <label for="gender">Gender</label>
+        <label for="gender">Sex</label>
         <select id="gender" name="gender" autocomplete="off">
             <option value="f">Female</option>
             <option value="m">Male</option>
         </select>
         <input type="submit" value="Add"></input>
     </form>
+    </div>
+    <div id="ps">
+        <form id="form2">
+            <label for="days">Days you'll be in</label>
+            <input type="text" id="days" name="days" autocomplete="off">
+            <input type="submit" value="Enter"></input>
+        </form>
+    </div>
+    <div id="es">
+        <table id="the only table lmao">
+            <tr id="tr1">
+                <th>Day</th>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
